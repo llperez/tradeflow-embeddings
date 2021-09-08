@@ -32,6 +32,9 @@ flow_mtx[lower.tri(flow_mtx, diag=TRUE)] <- ux
 dx <- 1 - log(flow_mtx + 1)/max(log(flow_mtx + 1))
 write.table(dx, 'comtrade_distmat.csv', sep=',')
 
+write.table(log(flow_mtx + 1), 'comtrade_flowmat.csv', sep=',')
+
+## compute histogram
 png('hist_distmat.png')
 hist(dx[dx < 1])
 dev.off()
