@@ -67,7 +67,7 @@ def build_stellargraph(edge_list, names, Dx, directed=False):
     return G
 
 
-def compute_embeddings(G, out_file='country_embeddings.csv', walk_length=100, num_walks=50, rw_p=0.5, rw_q=2.0, w2v_size=20, w2v_window=6, rng_seed=31337):
+def compute_embeddings(G, out_file='country_embeddings.csv', walk_length=100, num_walks=50, rw_p=0.5, rw_q=2.0, w2v_size=20, w2v_window=6, rng_seed=1337):
     rw = BiasedRandomWalk(G)
     weighted_walks = rw.run(
         nodes=G.nodes(),
@@ -98,7 +98,7 @@ def compute_embeddings(G, out_file='country_embeddings.csv', walk_length=100, nu
     return (node_ids, embeddings)
 
 
-def compute_tsne(node_embeddings, node_ids, out_file='tsne_embeddings.png', rng_seed=31337):
+def compute_tsne(node_embeddings, node_ids, out_file='tsne_embeddings.png', rng_seed=1337):
     tsne = TSNE(n_components=2, random_state=rng_seed)
     embed = tsne.fit_transform(node_embeddings)
     fig, ax = plt.subplots(figsize=(16, 15))

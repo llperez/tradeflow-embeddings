@@ -1,3 +1,4 @@
+## 'default' embedding configuration: undirected graph, filtered by PMFG
 import comtrade as ct
 import pmfg
 
